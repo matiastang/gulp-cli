@@ -4,7 +4,7 @@
   "description": "gulp-cli方便项目快速集成gulp到工程中",
   "main": "gulpfile.js",
   "bin": {
-    "gulp-cli": "init.js"
+    "gulp-cli": "./bin/init.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -24,6 +24,7 @@
     "@babel/core": "^7.16.5",
     "commander": "^8.3.0",
     "del": "^6.0.0",
+    "download-git-repo": "^3.0.2",
     "fs": "^0.0.1-security",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
