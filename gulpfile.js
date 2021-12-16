@@ -2,7 +2,7 @@
  * @Author: matiastang
  * @Date: 2021-12-16 17:23:09
  * @LastEditors: matiastang
- * @LastEditTime: 2021-12-16 17:36:08
+ * @LastEditTime: 2021-12-16 18:01:06
  * @FilePath: /gulp-cli/gulpfile.js
  * @Description: gulp
  */
@@ -18,6 +18,7 @@ plugins.bump = require('gulp-bump');// 更新version，gulp-update-version
 plugins.shell = require('shelljs');// 执行脚本命令
 plugins.jeditor = require('gulp-json-editor');// 编辑json
 plugins.del = require('del');// 清理目录
+plugins.minimist = require('minimist')// 获取命令行参数
 
 /**
  * @description: 同步任务
