@@ -1,0 +1,36 @@
+{
+  "name": "gulp-cli",
+  "version": "1.0.0",
+  "description": "gulp-cli方便项目快速集成gulp到工程中",
+  "main": "gulpfile.js",
+  "bin": {
+    "gulp-cli": "init.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matiastang/gulp-cli.git"
+  },
+  "author": "matias",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matiastang/gulp-cli/issues"
+  },
+  "homepage": "https://github.com/matiastang/gulp-cli#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.5",
+    "commander": "^8.3.0",
+    "del": "^6.0.0",
+    "fs": "^0.0.1-security",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-bump": "^3.2.0",
+    "gulp-json-editor": "^2.5.6",
+    "gulp-load-plugins": "^2.0.7",
+    "inquirer": "^8.2.0",
+    "shelljs": "^0.8.4"
+  }
+}
