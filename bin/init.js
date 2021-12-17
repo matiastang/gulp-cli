@@ -4,7 +4,7 @@
  * @Author: matiastang
  * @Date: 2021-12-16 17:22:58
  * @LastEditors: matiastang
- * @LastEditTime: 2021-12-17 11:33:43
+ * @LastEditTime: 2021-12-17 14:27:18
  * @FilePath: /gulp-cli/bin/init.js
  * @Description: 指令
  */
@@ -13,6 +13,7 @@ const inquirer = require('inquirer');// cli交互
 const shell = require('shelljs');// [shell执行命令](https://www.npmjs.com/package/shelljs)
 const download = require('download-git-repo');// 下面代码用到了 download-git-repo 和 rimraf 两个第三方库
 const package = require('../package.json');// package包
+const packageRoot = './tmp'
 
 /*
 * 指令
@@ -57,8 +58,9 @@ const downloadGulpModel = (answers) => {
 const downloadGulpFile = () => {
     console.log('开始下载gulpfile.js')
     download(
-        'direct:https://github.com/matiastang/gulp-cli/blob/main/gulpfile.js',
-        './',
+        'direct:https://github.com/matiastang/gulp-download-module/gulpfile.js#main',
+        // 'direct:https://github.com/matiastang/gulp-cli/blob/main/gulpfile.js',
+        `${packageRoot}/`,
         err => {
             if (err) {
                 console.error(err)
@@ -73,7 +75,7 @@ const downloadGulpFile = () => {
  * 下载gulp目录
  * @returns 
  */
- const downloadGulpDir = () => {
+const downloadGulpDir = () => {
     console.log('开始下载gulp目录')
     // 执行指令
     shell.exec('mkdir -vp ./tmp/gulp/{constant/,tasks/}', (error, stdout, stderr) => {
@@ -84,7 +86,7 @@ const downloadGulpFile = () => {
         // config.js
         download(
             'direct:https://github.com/matiastang/gulp-cli/blob/main/gulp/config.js',
-            './gulp',
+            `${packageRoot}/gulp`,
             err => {
                 if (err) {
                     console.error(err)
@@ -96,7 +98,7 @@ const downloadGulpFile = () => {
         // constant.js
         download(
             'direct:https://github.com/matiastang/gulp-cli/blob/main/gulp/constant/constant.js',
-            './gulp/constant',
+            `${packageRoot}/gulp/constant`,
             err => {
                 if (err) {
                     console.error(err)
@@ -108,7 +110,7 @@ const downloadGulpFile = () => {
         // git.js
         download(
             'direct:https://github.com/matiastang/gulp-cli/blob/main/gulp/tasks/git.js',
-            './gulp/tasks',
+            `${packageRoot}/gulp/tasks`,
             err => {
                 if (err) {
                     console.error(err)
@@ -120,7 +122,7 @@ const downloadGulpFile = () => {
         // npm.js
         download(
             'direct:https://github.com/matiastang/gulp-cli/blob/main/gulp/tasks/npm.js',
-            './gulp/tasks',
+            `${packageRoot}/gulp/tasks`,
             err => {
                 if (err) {
                     console.error(err)
@@ -132,7 +134,7 @@ const downloadGulpFile = () => {
         // scripts.js
         download(
             'direct:https://github.com/matiastang/gulp-cli/blob/main/gulp/tasks/scripts.js',
-            './gulp/tasks',
+            `${packageRoot}/gulp/tasks`,
             err => {
                 if (err) {
                     console.error(err)
@@ -144,7 +146,7 @@ const downloadGulpFile = () => {
         // version.js
         download(
             'direct:https://github.com/matiastang/gulp-cli/blob/main/gulp/tasks/version.js',
-            './gulp/tasks',
+            `${packageRoot}/gulp/tasks`,
             err => {
                 if (err) {
                     console.error(err)
@@ -218,11 +220,10 @@ program
 const downloadModule = () => {
     console.log('开始下载gulp模板')
     download(
-        'https://github.com:matiastang/gulp-download-module',
-        './',
-        {
-            clone: true
-        },
+        'direct:https://github.com/matiastang/gulp-cli.git#main',
+        // 'direct:https://github.com/matiastang/gulp-download-module.git#main',
+        `${packageRoot}/`,
+        { clone: true },
         err => {
             if (err) {
                 console.error(err)
