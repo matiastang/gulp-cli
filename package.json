@@ -7,6 +7,10 @@
     "gulp-cli": "./bin/init.js"
   },
   "scripts": {
+    "publish-prerelease": "gulp versionPrerelease && gulp gitVersionPush",
+    "publish-patch": "gulp versionPatch && gulp gitVersionPush",
+    "publish-minor": "gulp versionMinor && gulp gitVersionPush",
+    "publish-major": "gulp versionMajor && gulp gitVersionPush",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
