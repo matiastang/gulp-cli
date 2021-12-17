@@ -4,7 +4,7 @@
  * @Author: matiastang
  * @Date: 2021-12-16 17:22:58
  * @LastEditors: matiastang
- * @LastEditTime: 2021-12-16 19:49:30
+ * @LastEditTime: 2021-12-17 11:33:43
  * @FilePath: /gulp-cli/bin/init.js
  * @Description: 指令
  */
@@ -58,15 +58,13 @@ const downloadGulpFile = () => {
     console.log('开始下载gulpfile.js')
     download(
         'direct:https://github.com/matiastang/gulp-cli/blob/main/gulpfile.js',
-        'tmp',
+        './',
         err => {
             if (err) {
                 console.error(err)
-                reject()
                 return
             }
             console.log('gulpfile.js下载成功')
-            resolve()
         }
     )
 }
@@ -77,19 +75,85 @@ const downloadGulpFile = () => {
  */
  const downloadGulpDir = () => {
     console.log('开始下载gulp目录')
-    download(
-        'direct:https://github.com/matiastang/gulp-cli/tree/main/gulp',
-        'tmp',
-        err => {
-            if (err) {
-                console.error(err)
-                reject()
-                return
-            }
-            console.log('gulp目录下载成功')
-            resolve()
+    // 执行指令
+    shell.exec('mkdir -vp ./tmp/gulp/{constant/,tasks/}', (error, stdout, stderr) => {
+        if (error) {
+            console.error(`docs 指令 exec error: ${error}`)
+            return
         }
-    )
+        // config.js
+        download(
+            'direct:https://github.com/matiastang/gulp-cli/blob/main/gulp/config.js',
+            './gulp',
+            err => {
+                if (err) {
+                    console.error(err)
+                    return
+                }
+                console.log('gulp config.js下载成功')
+            }
+        )
+        // constant.js
+        download(
+            'direct:https://github.com/matiastang/gulp-cli/blob/main/gulp/constant/constant.js',
+            './gulp/constant',
+            err => {
+                if (err) {
+                    console.error(err)
+                    return
+                }
+                console.log('gulp constant/constant.js下载成功')
+            }
+        )
+        // git.js
+        download(
+            'direct:https://github.com/matiastang/gulp-cli/blob/main/gulp/tasks/git.js',
+            './gulp/tasks',
+            err => {
+                if (err) {
+                    console.error(err)
+                    return
+                }
+                console.log('gulp tasks/git.js下载成功')
+            }
+        )
+        // npm.js
+        download(
+            'direct:https://github.com/matiastang/gulp-cli/blob/main/gulp/tasks/npm.js',
+            './gulp/tasks',
+            err => {
+                if (err) {
+                    console.error(err)
+                    return
+                }
+                console.log('gulp tasks/npm.js下载成功')
+            }
+        )
+        // scripts.js
+        download(
+            'direct:https://github.com/matiastang/gulp-cli/blob/main/gulp/tasks/scripts.js',
+            './gulp/tasks',
+            err => {
+                if (err) {
+                    console.error(err)
+                    return
+                }
+                console.log('gulp tasks/scripts.js下载成功')
+            }
+        )
+        // version.js
+        download(
+            'direct:https://github.com/matiastang/gulp-cli/blob/main/gulp/tasks/version.js',
+            './gulp/tasks',
+            err => {
+                if (err) {
+                    console.error(err)
+                    return
+                }
+                console.log('gulp tasks/version.js下载成功')
+            }
+        )
+    });
 }
 
 /**
@@ -120,6 +184,7 @@ const gulpAction = () => {
         }
     })
 }
+
 // 添加指令
 program
     .command('initGulp')
@@ -139,11 +204,54 @@ const taskAction = () => {
         }
     })
 }
+
 // 添加指令
 program
     .command('initTask')
     .description('初始化gulp task目录')
     .action(taskAction)
+
+/**
+ * 下载gulp模板
+ * @returns 
+ */
+const downloadModule = () => {
+    console.log('开始下载gulp模板')
+    download(
+        'https://github.com:matiastang/gulp-download-module',
+        './',
+        {
+            clone: true
+        },
+        err => {
+            if (err) {
+                console.error(err)
+                return
+            }
+            console.log('gulp模板下载成功')
+        }
+    )
+}
+
+const moduleAction = () => {
+    inquirer.prompt([{
+        type: "confirm",
+        message: "下载gulp模板",
+        name: "gulpModel",
+        prefix: "是否",
+        suffix: "？"
+    }]).then((answers) => {
+        if (answers.gulpModel) {
+            downloadModule()
+        }
+    })
+}
+    
+// 添加指令
+program
+    .command('model')
+    .description('初始化gulp模板')
+    .action(moduleAction)
 
 // program.parse 是将命令参数传入commander 管道中，一般放在最后执行。
 program.parse(process.argv)
