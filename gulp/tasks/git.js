@@ -2,7 +2,7 @@
  * @Author: tangdaoyong
  * @Date: 2021-05-07 15:20:03
  * @LastEditors: matiastang
- * @LastEditTime: 2021-12-16 18:22:48
+ * @LastEditTime: 2021-12-17 14:52:55
  * @Description: git 相关
  */
 /**
@@ -124,4 +124,5 @@ module.exports = {
     git_version,
     git_first,
     git_feat,
+    git_fix,
 }
