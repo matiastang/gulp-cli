@@ -1,5 +1,5 @@
 {
-  "name": "mt-gulp-cli",
+  "name": "matias-gulp-cli",
   "version": "1.0.0",
   "description": "gulp-cli方便项目快速集成gulp到工程中",
   "main": "gulpfile.js",
