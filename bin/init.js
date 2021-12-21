@@ -4,7 +4,7 @@
  * @Author: matiastang
  * @Date: 2021-12-16 17:22:58
  * @LastEditors: matiastang
- * @LastEditTime: 2021-12-17 14:27:18
+ * @LastEditTime: 2021-12-21 13:47:35
  * @FilePath: /gulp-cli/bin/init.js
  * @Description: 指令
  */
@@ -168,50 +168,50 @@ const initAction = () => {
 };
 
 // 添加docs指令
-program
-    .command('init')
-    .description('初始化gulp')
-    .action(initAction)
+// program
+//     .command('init')
+//     .description('初始化gulp')
+//     .action(initAction)
 
-const gulpAction = () => {
-    inquirer.prompt([{
-        type: "confirm",
-        message: "下载gulpfile.js模板",
-        name: "gulpFile",
-        prefix: "是否",
-        suffix: "？"
-    }]).then((answers) => {
-        if (answers.gulpFile) {
-            downloadGulpFile()
-        }
-    })
-}
+// const gulpAction = () => {
+//     inquirer.prompt([{
+//         type: "confirm",
+//         message: "下载gulpfile.js模板",
+//         name: "gulpFile",
+//         prefix: "是否",
+//         suffix: "？"
+//     }]).then((answers) => {
+//         if (answers.gulpFile) {
+//             downloadGulpFile()
+//         }
+//     })
+// }
+
+// 添加指令
+// program
+//     .command('initGulp')
+//     .description('创建gulpfile.js模板')
+//     .action(gulpAction)
+
+// const taskAction = () => {
+//     inquirer.prompt([{
+//         type: "confirm",
+//         message: "下载gulp指令模板文件夹",
+//         name: "gulpTask",
+//         prefix: "是否",
+//         suffix: "？"
+//     }]).then((answers) => {
+//         if (answers.gulpTask) {
+//             downloadGulpDir()
+//         }
+//     })
+// }
 
 // 添加指令
 program
-    .command('initGulp')
-    .description('创建gulpfile.js模板')
-    .action(gulpAction)
-
-const taskAction = () => {
-    inquirer.prompt([{
-        type: "confirm",
-        message: "下载gulp指令模板文件夹",
-        name: "gulpTask",
-        prefix: "是否",
-        suffix: "？"
-    }]).then((answers) => {
-        if (answers.gulpTask) {
-            downloadGulpDir()
-        }
-    })
-}
-
-// 添加指令
-program
-    .command('initTask')
-    .description('初始化gulp task目录')
-    .action(taskAction)
+    // .command('initTask')
+    // .description('初始化gulp task目录')
+    // .action(taskAction)
 
 /**
  * 下载gulp模板
@@ -220,8 +220,8 @@ program
 const downloadModule = () => {
     console.log('开始下载gulp模板')
     download(
-        'direct:https://github.com/matiastang/gulp-cli.git#main',
-        // 'direct:https://github.com/matiastang/gulp-download-module.git#main',
+        // 'direct:https://github.com/matiastang/gulp-cli.git#main',
+        'direct:https://github.com/matiastang/gulp-download-module.git#main',
         `${packageRoot}/`,
         { clone: true },
         err => {
@@ -250,7 +250,7 @@ const moduleAction = () => {
     
 // 添加指令
 program
-    .command('model')
+    .command('add')
     .description('初始化gulp模板')
     .action(moduleAction)
 

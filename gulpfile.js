@@ -2,7 +2,7 @@
  * @Author: matiastang
  * @Date: 2021-12-16 17:23:09
  * @LastEditors: matiastang
- * @LastEditTime: 2021-12-17 14:05:07
+ * @LastEditTime: 2021-12-21 11:15:50
  * @FilePath: /gulp-cli/gulpfile.js
  * @Description: gulp
  */
@@ -14,7 +14,7 @@ const taskRoot = './gulp/tasks/'
 const gulpTaskList = gulpfs.readdirSync(taskRoot);// 获取 taskRoot 目录下所有的文件名称列表
 
 // 用到的插件全部挂载到plugins上
-plugins.babel = require('gulp-babel');// babel
+// plugins.babel = require('gulp-babel');// babel
 plugins.bump = require('gulp-bump');// 更新version，gulp-update-version
 plugins.shell = require('shelljs');// 执行脚本命令
 plugins.jeditor = require('gulp-json-editor');// 编辑json
