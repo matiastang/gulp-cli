@@ -2,17 +2,16 @@
  * @Author: tangdaoyong
  * @Date: 2021-05-07 15:20:03
  * @LastEditors: matiastang
- * @LastEditTime: 2021-12-29 16:07:24
+ * @LastEditTime: 2021-12-29 16:14:13
  * @Description: git 相关
  */
 const shell = require('shelljs');// 执行脚本命令
 const minimist = require('minimist')// 获取命令行参数
 /**
  * 更新版本号
- * @param {*} gulp 
  * @param {*} cb 
  */
-const git_version = async function (gulp, cb) {
+const git_version = async function (cb) {
     const add = 'git add -A :/'; // 添加
     const commit = 'git commit -m "更新版本号"'; // 备注
     const push = 'git push'; // 提交
@@ -33,10 +32,9 @@ const git_version = async function (gulp, cb) {
 
 /**
  * 第一次提交
- * @param {*} gulp 
  * @param {*} cb 
  */
-const git_first = async function (gulp, cb) {
+const git_first = async function (cb) {
     const add = 'git add -A :/'; // 添加
     const commit = 'git commit -m "第一次提交"'; // 备注
     const push = 'git push'; // 提交
@@ -57,10 +55,9 @@ const git_first = async function (gulp, cb) {
 
 /**
  * feat提交
- * @param {*} gulp 
  * @param {*} cb 
  */
-const git_feat = async function (gulp, cb) {
+const git_feat = async function (cb) {
     const argv = minimist(process.argv.slice(2))
     const m = argv.m
     if (!m) {
@@ -88,10 +85,9 @@ const git_feat = async function (gulp, cb) {
 
 /**
  * fix提交
- * @param {*} gulp 
  * @param {*} cb 
  */
-const git_fix = async function (gulp, cb) {
+const git_fix = async function (cb) {
     const argv = minimist(process.argv.slice(2))
     const m = argv.m
     if (!m) {
